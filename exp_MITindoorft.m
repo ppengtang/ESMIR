@@ -2,6 +2,7 @@
 addpath(fullfile('include', 'liblinear-1.7-single', 'matlab'));
 addpath(fullfile('include', 'vlfeat', 'toolbox'));
 addpath(fullfile('include', 'utils'));
+addpath(fullfile('..', 'caffe', 'matlab'));
 vl_setup;
 
 

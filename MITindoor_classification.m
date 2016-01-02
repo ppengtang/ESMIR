@@ -3,6 +3,7 @@ function MITindoor_classification()
 addpath(fullfile('include', 'liblinear-1.7-single', 'matlab'));
 addpath(fullfile('include', 'vlfeat', 'toolbox'));
 addpath(fullfile('include', 'utils'));
+addpath(fullfile('..', 'caffe', 'matlab'));
 vl_setup;
 
 
@@ -22,8 +23,8 @@ para.model_file = fullfile('feature_extraction_imagenet',...
 para.use_gpu = 1;
 para.gpu_id = 0;
 
-% load( fullfile('feature_extraction_imagenet', 'VGG_mean') );
-% para.IMAGE_MEAN = image_mean;
+load( fullfile('feature_extraction_imagenet', 'VGG_mean') );
+para.IMAGE_MEAN = image_mean;
 
 para.IMAGE_DIM = 256;
 para.CROPPED_DIM = 224;
@@ -53,7 +54,7 @@ para.path_results = fullfile('data', sprintf('MITindoorft_results_%s.mat', exper
 
 mkdir(para.path_rgnfeat);
 
-% sceneft_CNNfeat(para);
+sceneft_CNNfeat(para);
 
 db = retr_database_dir(para.path_db, para.fmt);
 
@@ -86,6 +87,36 @@ for i = 1:length(MITindoor_te)
 end
 
 db.tr = tr;
+
+% pca
+if para.pca_dim ~= 0 && ~exist('MITindoor_pca.mat', 'file')
+    fprintf('pca.\n');
+    tic;
+    tr_pos = find( db.tr==1 );
+    features = cell(length(tr_pos), 1);
+    for i = 1:length(tr_pos)
+        imid = tr_pos(i);
+        [~, fname] = fileparts( db.path{imid} );
+        p = fullfile( para.path_rgnfeat, db.cname{db.label(imid)}, [fname '.mat'] );
+        feat = load_feat(p);
+        tmp = any(isnan(feat)');
+        feat(tmp, :) = [];
+        ri = randperm(size(feat, 1));
+        ri = ri(1:min(length(ri), 100));
+        feat = feat(ri, :);
+        features{i} = feat;
+    end
+    features = cell2mat(features);
+    ri = randperm(size(features, 1));
+    length(ri)
+    ri = ri(1:min(length(ri), 300000));
+    features = features(ri, :);
+    pca_mean = mean(features, 1);
+    [pca_coeff, ~, pca_eig] = pca(features);
+    save('MITindoor_pca.mat', 'pca_mean', 'pca_coeff', 'pca_eig');
+    clear features;
+    toc;
+end
 
 load('MITindoor_pca.mat');
 
