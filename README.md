@@ -31,3 +31,7 @@ Run the "MITindoor_classification.m" to test the trained model.
 
 ## Training
 Run the "exp_MITindoorft.m" to train the model.
+
+
+## License
+The code is released under the MIT License.
