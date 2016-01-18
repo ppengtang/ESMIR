@@ -1,4 +1,4 @@
-function MITindoor_classification()
+function [ acc ] = MITindoor_classification()
 
 addpath(fullfile('include', 'liblinear-1.7-single', 'matlab'));
 addpath(fullfile('include', 'vlfeat', 'toolbox'));
@@ -31,8 +31,7 @@ para.CROPPED_DIM = 224;
 
 para.poolsize = 2;
 
-para.options = '-s 5 -c 5';
-para.options1 = '-s 2 -c 4';               % svm option for image classfication
+para.options = '-s 2 -c 4';               % svm option for image classfication
 para.num_cluster = 4;
 para.max_iter = 3;
 para.max_SGD_iter = 10000;
@@ -155,16 +154,13 @@ fv_te = sparse(fv_te);
 label_tr = single(label( db.tr==1 ));
 label_te = sparse(label( db.tr==2 ));
 
-m2 = train( label_tr, fv_tr, para.options1 );
+m2 = train( label_tr, fv_tr, para.options );
 clear fv_tr;
 clear label_tr;
 
 [~, a] = predict( label_te, fv_te, m2 );
 
 acc = a(1);
-
-acc
-
 
 end
 
