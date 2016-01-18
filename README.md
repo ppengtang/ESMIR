@@ -10,14 +10,14 @@ The paper is submitted to the journal "IEEE TRANSACTIONS ON CYBERNETICS".
 
 
 ## Dependencies
-The MIT-indoor 67 dataset can be downloaded on http://web.mit.edu/torralba/www/indoor.html and should be put under the "data" path.
+The MIT-indoor 67 dataset can be downloaded on [this website](http://web.mit.edu/torralba/www/indoor.html) and should be put under the "data" path.
 
-The caffe (http://caffe.berkeleyvision.org/) is needed to be installed.
+The [caffe](http://caffe.berkeleyvision.org/) is needed to be installed.
 
 The CNN model can be downloaded on https://gist.github.com/ksimonyan/fd8800eeb36e276cd6f9#file-readme-md 
 and be put under the "feature_extraction_imagenet" path.
 
-VLFeat (http://www.vlfeat.org/) and LIBLINEAR (https://www.csie.ntu.edu.tw/~cjlin/liblinear/) are also needed.
+[VLFeat](http://www.vlfeat.org/) and [LIBLINEAR](https://www.csie.ntu.edu.tw/~cjlin/liblinear/) are also needed.
 
 
 ## Trained models
