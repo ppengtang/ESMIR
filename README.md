@@ -14,7 +14,7 @@ The MIT-indoor 67 dataset can be downloaded on [this website](http://web.mit.edu
 
 The [caffe](http://caffe.berkeleyvision.org/) is needed to be installed.
 
-The CNN model can be downloaded on https://gist.github.com/ksimonyan/fd8800eeb36e276cd6f9#file-readme-md 
+The CNN model can be downloaded on the [caffe model zoo](https://github.com/BVLC/caffe/wiki/Model-Zoo) 
 and be put under the "feature_extraction_imagenet" path.
 
 [VLFeat](http://www.vlfeat.org/) and [LIBLINEAR](https://www.csie.ntu.edu.tw/~cjlin/liblinear/) are also needed.
