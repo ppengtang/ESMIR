@@ -6,7 +6,7 @@ The implemention codes on MIT-indoor 67 dataset.
 
 A novel method to learn very compact and discriminative image representation.
 
-The paper is submitted to the journal "Pattern Recognition".
+The paper is submitted to the journal "Knowledge and Information Systems".
 
 
 ## Dependencies
