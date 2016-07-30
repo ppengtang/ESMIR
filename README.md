@@ -1,4 +1,4 @@
-# Learning Super Shared Middle-level Image Representation for Scene Classification
+# Learning Extremely Shared Middle-level Image Representation for Scene Classification
 
 ## Introduction
 
