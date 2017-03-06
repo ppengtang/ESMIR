@@ -39,8 +39,8 @@ If you find the work is useful in your research, please considering citing:
     @article{tang2016learning,
         title = {Learning extremely shared middle-level image representation for scene classification},
         author = {Tang, Peng and Zhang, Jin and Wang, Xinggang and Feng, Bin and Roli, Fabio and Liu, Wenyu},
-        journal={Knowledge and Information Systems},
-        pages={1--22},
-        year={2016},
-        publisher={Springer}
+        journal = {Knowledge and Information Systems},
+        pages = {1--22},
+        year = {2016},
+        publisher = {Springer}
     }
